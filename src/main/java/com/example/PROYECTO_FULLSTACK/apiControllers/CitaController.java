@@ -24,13 +24,13 @@ public class CitaController {
 
     @PostMapping
     public void createPedido(@RequestBody Cita cita){
-    citaService.newCita(cita);
+    citaService.newPedido(cita);
     }
 
-    //@PutMapping("/{id}")
-    //public void updatePedido(@PathVariable Integer id, @RequestBody Cita cita){
-         //citaService.update(id, cita);
-    //}
+    @PutMapping("/{id}")
+    public void updatePedido(@PathVariable Integer id, @RequestBody Cita cita){
+         citaService.update(id, cita);
+    }
 
 
 
