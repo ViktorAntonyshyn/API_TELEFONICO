@@ -23,7 +23,6 @@ public class CitaService {
         return citaRepository.findAll();
     }
 
-
     public void newPedido(Cita cita) {
         citaRepository.save(cita);
     }
@@ -43,4 +42,10 @@ public class CitaService {
         }
     }
 
+    public void delete(Integer id, Cita cita) {
+        boolean existe = citaRepository.existsById(id);
+        if (existe) {
+            citaRepository.delete(cita);
+        }
+    }
 }
