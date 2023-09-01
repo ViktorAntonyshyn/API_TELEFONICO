@@ -21,12 +21,12 @@ public class CitaController {
     public List <Cita> getPedidoController(){
     return citaService.getPedido();
     }
-
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping
     public void createPedido(@RequestBody Cita cita){
     citaService.newPedido(cita);
     }
-
+    @CrossOrigin(origins = "http://localhost:5173")
     @PutMapping("/{id}")
     public void updatePedido(@PathVariable Integer id, @RequestBody Cita cita){
          citaService.update(id, cita);
