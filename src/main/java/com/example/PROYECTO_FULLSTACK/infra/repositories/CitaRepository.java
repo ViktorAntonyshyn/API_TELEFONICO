@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface CitaRepository extends JpaRepository<Cita, Integer> {
 
 
-    //Optional<Cita> findByID(Integer id);
+
 }
