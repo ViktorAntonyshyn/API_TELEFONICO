@@ -26,21 +26,25 @@ public class CitaService {
     public void newPedido(Cita cita) {
         citaRepository.save(cita);
     }
-
-    public void update(Integer id, Cita cita) {
-        Optional<Cita> pedidoByID = (citaRepository.findById(id));
-
-        if (pedidoByID.isPresent()){
-            Cita pedidoExistente = pedidoByID.get();
-
-            pedidoExistente.setNameCita(cita.getNameCita());
-            pedidoExistente.setNameUser(cita.getNameUser());
-            pedidoExistente.setFecha(cita.getFecha());
-            pedidoExistente.setHora(cita.getHora());
-
-            citaRepository.save(pedidoExistente);
-        }
+    public Cita citaById(Integer id) {
+        Optional<Cita> citaByID = (citaRepository.findById(id));
+        return citaByID.orElse(null);
     }
+    public void update(Integer id, Cita cita) {
+        Cita pedidoExistente = citaById(id);
+
+        if (pedidoExistente == null) {
+            System.out.println("error");
+
+        }
+        pedidoExistente.setNameCita(cita.getNameCita());
+        pedidoExistente.setNameUser(cita.getNameUser());
+        pedidoExistente.setFecha(cita.getFecha());
+        pedidoExistente.setHora(cita.getHora());
+
+        citaRepository.save(pedidoExistente);
+    }
+
 
     public void delete(Integer id, Cita cita) {
         boolean existe = citaRepository.existsById(id);
