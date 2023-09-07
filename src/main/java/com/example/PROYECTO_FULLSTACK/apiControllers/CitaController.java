@@ -49,7 +49,4 @@ public class CitaController {
     public void  deletePedido(@PathVariable Integer id, Cita cita){
     citaService.delete(id, cita);
     }
-
-
-
 }
